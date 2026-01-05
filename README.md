@@ -1,216 +1,133 @@
-# N_Health Design System - Updated Edition
+# N Health Web Design Guideline
 
-## 🎨 What's New
+**Version**: 3.0.0  
+**Updated**: January 2026  
+**Status**: Production Ready
 
-### Design Updates
-- ✅ **Modern Color Palette**: Soft professional blues (#3B82F6) and teal accents (#06B6D4)
-- ✅ **Thai Language Support**: Sarabun font (compatible with Thai and English)
-- ✅ **Professional Icons**: Iconoir icon library integration
-- ✅ **Azure AD Login**: Microsoft SSO option on login page
+## 🚀 Overview
 
-### Quick Access
+The **N Health Web Design Guideline** is a comprehensive, responsive, and modern design system built for N Health web applications. It provides a unified user interface with consistent typography, color palettes, and interactive components, strictly adhering to **Ant Design** principles while maintaining N Health's unique branding identity.
 
-**Main Pages** 
-- [Design System Hub](index.html) - Overview, colors, typography
-- [Component Library](components-demo.html) - All UI components
-- [Login with Azure AD](login.html) - Authentication with Microsoft SSO
-- [Dashboard](dashboard-demo.html) - Patient Lab Portal
-- [Data Management](data-table-crud.html) - CRUD operations
-- [Settings](settings.html) - User preferences
-- [User Management](user-management.html) - Admin dashboard
-- [**Error Pages**](error-pages.html) ⭐ - 404, 403, 500, Offline templates
+This project is built with **Vanilla HTML, CSS, and JavaScript**, ensuring lightweight performance and easy integration without heavy framework dependencies.
 
-**Authentication**
-- [Login](login.html)
-- [Signup](signup.html)
+## ✨ Key Features
 
-## 🎨 Color Palette
+- **🎨 Modern Design System**: A professional medical-grade aesthetic using "Modern Medical Blue" and "Teal" accents.
+- **📱 Fully Responsive**: Adaptive layouts for Desktop, Tablet, and Mobile devices with a custom slide-out mobile navigation menu.
+- **🌙 Dark Mode Support**: Native dark mode integration with seamless toggling and persistent state storage.
+- **🌐 Internationalization (i18n)**: Built-in support for **English (EN)** and **Thai (TH)** language switching.
+- **⚡ Interactive Components**: A rich library of pre-built components including data tables, forms, cards, and modals.
+- **🔐 Ready-to-use Templates**: Production-ready pages for Login (Azure AD), Dashboard, Settings, and User Management.
 
-### Primary (Soft Professional Blue)
-- `#3B82F6` - Primary 800 (Buttons, links)
-- `#1E40AF` - Primary 900 (Hover states)
-- `#60A5FA` - Primary 600 (Light accents)
-- `#DBEAFE` - Primary 100 (Backgrounds)
+## 🛠 Technology Stack
 
-### Accent (Modern Teal)
-- `#06B6D4` - Accent 800 (Highlights)
-- `#0E7490` - Accent 900 (Dark teal)
-- `#22D3EE` - Accent 600 (Light cyan)
+- **Core**: HTML5, CSS3, Vanilla JavaScript (ES6+)
+- **Styling**: Native CSS Variables (Custom Properties) for extensive theming capability.
+- **Icons**: [Font Awesome 6 Free](https://fontawesome.com/) (via CDN)
+- **Typography**: `DB Helvethaica X` (Local Asset) - Optimized for both English and Thai.
 
-### Status Colors
-- `#10B981` - Success (Green)
-- `#3B82F6` - Processing (Blue)
-- `#F59E0B` - Warning (Amber)
-- `#EF4444` - Error (Red)
+## 📂 Project Structure
 
-### Neutrals
-- `#111827` - Text primary
-- `#6B7280` - Text secondary
-- `#D1D5DB` - Borders
-- `#F9FAFB` - Background
-
-## 🔤 Typography
-
-**Font**: Sarabun (Google Fonts)
-- Supports: English ✅, Thai ✅ (ภาษาไทย)
-- Weights: 300, 400, 500, 600, 700
-
-**Examples**:
-- English: The quick brown fox jumps over the lazy dog
-- Thai: สวัสดี ยินดีต้อนรับสู่ระบบ N_Health
-
-## 🎯 Icon System
-
-Using **Iconoir** - Free, open-source icon library
-
-### Usage Examples
-```html
-<!-- Icon only -->
-<i class="iconoir-search"></i>
-<i class="iconoir-user"></i>
-<i class="iconoir-settings"></i>
-
-<!-- Icon with button -->
-<button class="btn btn-primary">
-  <i class="iconoir-plus"></i>
-  Add New
-</button>
+```
+├── assets/                 # Images and Fonts (DB Helvethaica X)
+├── styles.css             # Main Design System (CSS Variables, Utilities, Components)
+├── main.js                # Core Logic (Theme, Language, Mobile Menu, Interactivity)
+├── index.html             # Documentation Hub & Overview
+├── components-demo.html   # Component Library Showcase
+├── dashboard-demo.html    # Example Application Dashboard
+├── login.html             # Login Page (with Azure AD UI)
+├── signup.html            # Registration Page
+├── settings.html          # User Settings & Profile
+├── user-management.html   # Admin User Management
+├── data-table-crud.html   # Advanced Data Table with CRUD UI
+├── error-pages.html       # 404, 500, and Maintenance Pages
+└── figma-docs.html        # Design System Documentation
 ```
 
-### Available Icons
-- `iconoir-search` - Search
-- `iconoir-user` - User/Profile
-- `iconoir-settings` - Settings
-- `iconoir-trash` - Delete
-- `iconoir-edit-pencil` - Edit
-- `iconoir-eye` - View
-- `iconoir-folder` - Folder/Files
-- [Full icon list](https://iconoir.com/)
+## 🎨 Design System
 
-## 🔐 Azure AD Login
+### Color Palette
 
-The login page now features Microsoft Azure AD SSO:
+The system uses a sophisticated scale of blues and neutrals.
 
-1. Open [login.html](login.html)
-2. Click "Sign in with Microsoft" button
-3. Standard email/password login still available below
+**Primary Colors (Medical Blue)**
+- `Primary 50` - `#f0f5ff` (Backgrounds)
+- `Primary 400` - `#597ef7` (Dark Mode Text)
+- `Primary 600` - `#1d39c4` (Primary Buttons, Active States)
+- `Primary 800` - `#061178` (Headers, Gradients)
+- `Primary 900` - `#030852` (Deep Backgrounds)
 
-## 🚨 Accessing Error Pages
+**Functional Colors**
+- ✅ Success: `#10b981`
+- ⚠️ Warning: `#f59e0b`
+- ❌ Error: `#ef4444`
+- ℹ️ Info: `#3b82f6`
 
-**Direct Link**: [error-pages.html](error-pages.html)
+### Typography
 
-**Available Templates**:
-- 404 Not Found
-- 403 Forbidden  
-- 500 Internal Server Error
-- Offline/Network Error
+**Font Family**: `DB Helvethaica X`, `-apple-system`, `Roboto`, `sans-serif`
 
-Use the dropdown selector on the error pages to switch between different error states.
+- **Headings**: Bold weights (700), optimized for hierarchy.
+  - H1: 48px
+  - H2: 38px
+  - H3: 30px
+  - H4: 22px
+- **Body**: Regular weights (400/500), high readability.
+  - Base: 16px
+  - Small: 14px
 
-## 📱 Responsive Design
+## 💻 Usage & Development
 
-All pages work on:
-- Desktop (1200px+)
-- Tablet (768px - 1199px)
-- Mobile (< 768px)
+### 1. Setup
+Simply serve the files using any static file server (e.g., Live Server in VS Code, Python SimpleHTTPServer) to avoid CORS issues with local fonts/modules.
 
-## 🛠️ For Developers
-
-### Using Components
+### 2. Linking the System
+Include the core files in the `<head>` and `<body>` of your HTML pages:
 
 ```html
-<!-- Include stylesheet -->
+<!-- In <head> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 <link rel="stylesheet" href="styles.css">
 
-<!-- Buttons -->
-<button class="btn btn-primary">Primary Action</button>
-<button class="btn btn-secondary">Secondary</button>
+<!-- End of <body> -->
+<script src="main.js"></script>
+```
 
-<!-- Form Input -->
-<input type="text" class="form-input" placeholder="Enter text" />
+### 3. Using Components
+Copy-paste code directly from the [Component Library](components-demo.html).
 
-<!-- Status Badge -->
-<span class="badge badge-completed">Completed</span>
-
-<!-- With Icons -->
+**Example Button**:
+```html
 <button class="btn btn-primary">
-  <i class="iconoir-plus"></i>
-  Add New
+    <i class="fa-solid fa-check"></i> Submit
 </button>
 ```
 
-### Color Variables
-
-```css
-/* Use CSS variables */
-color: var(--color-primary-800);
-background: var(--color-neutral-50);
-border: 1px solid var(--color-neutral-300);
+**Example Card**:
+```html
+<div class="card">
+    <div class="card-header">
+        <h4 class="card-title">Patient Info</h4>
+    </div>
+    <p>Content goes here...</p>
+</div>
 ```
 
-## 📋 Component Checklist
+## 📱 Responsive & Mobile Behavior
 
-- ✅ Buttons (6 variants)
-- ✅ Forms (inputs, selects, checkboxes, textareas)
-- ✅ File upload (with error states)
-- ✅ Status badges (4 types)
-- ✅ Data tables
-- ✅ Cards & stat cards
-- ✅ Modals
-- ✅ Toggle switches
-- ✅ Progress bars
-- ✅ Avatars
-- ✅ Azure AD button
+- **Desktop (>1024px)**: Full sidebar/topbar navigation.
+- **Tablet & Mobile (≤1024px)**: 
+  - Navigation collapses into a **Hamburger Menu**.
+  - Grid layouts (`.grid-cols-*`) automatically stack vertically.
+  - Typography scales down slightly for better fit.
+- **Menu Toggle**: The mobile menu includes integrated controls for **Language** and **Theme** switching.
 
-## 🌐 Language Support
+## 🤝 Contribution
 
-### Thai Examples (ภาษาไทย)
-
-**Headers**: 
-- ระบบสุขภาพ N_Health
-- แดชบอร์ดผู้ป่วย
-
-**UI Text**:
-- เข้าสู่ระบบ (Login)
-- ลงทะเบียน (Register)
-- บันทึก (Save)
-- ยกเลิก (Cancel)
-
-**Mixed Content**:
-- Patient Name: นพ. สมชาย รัตนกุล
-- Department: แผนกหัวใจ (Cardiology)
-
-## 📚 Files Overview
-
-Core Files:
-- `styles.css` - Complete design system (870+ lines)
-- `index.html` - Design hub
-- `components-demo.html` - Component showcase
-- `login.html` - Auth with Azure AD
-- `error-pages.html` - Error templates ⭐
-
-## 🔗 Quick Links
-
-1. **Start Here**: [index.html](index.html)
-2. **See Components**: [components-demo.html](components-demo.html)
-3. **Test Login**: [login.html](login.html) (Azure AD enabled)
-4. **View Dashboard**: [dashboard-demo.html](dashboard-demo.html)
-5. **Error Pages**: [error-pages.html](error-pages.html) ⭐
-
-## 💡 Tips
-
-- Error pages can be accessed directly via `error-pages.html`
-- Azure AD button triggers an alert (demo mode)
-- All colors now use modern soft blue/teal palette
-- Iconoir icons loaded via CDN
-- Thai font (Sarabun) loads from Google Fonts
+1. Always use CSS variables (`var(--color-...)`) instead of hardcoded hex values.
+2. Ensure all new pages include the `top-nav` structure and link `main.js`.
+3. Check designs in both **Light** and **Dark** modes before committing.
 
 ---
 
-**Version**: 2.0 (Revised Edition)  
-**Updated**: January 2026  
-**Font**: Sarabun (Thai + English)  
-**Icons**: Iconoir  
-**Auth**: Azure AD Support
-
-🎨 Built with modern colors, professional icons, and multilingual support!
+*N Health Brand Identity Integrated*
