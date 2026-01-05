@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Management - N Health Web Design Guideline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- New Unified Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/n_health_logo.png" alt="N Health" class="nav-logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-i18n="nav_overview">
+                        <i class="fa-solid fa-house"></i> Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="components-demo.html" class="nav-link" data-i18n="nav_components">
+                        <i class="fa-solid fa-cube"></i> Components
+                    </a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#" class="nav-link active" data-i18n="nav_pages">
+                        <i class="fa-solid fa-file"></i> Pages <i class="fa-solid fa-chevron-down"
+                            style="font-size: 14px;"></i>
+                    </a>
+                    <div class="nav-dropdown-content">
+                        <a href="dashboard-demo.html" data-i18n="nav_dashboard"><i class="fa-solid fa-border-all"></i>
+                            Dashboard</a>
+                        <a href="data-table-crud.html" data-i18n="nav_crud"><i class="fa-solid fa-table"></i> CRUD
+                            Table</a>
+                        <a href="settings.html" data-i18n="nav_settings"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="user-management.html" data-i18n="nav_users"><i class="fa-solid fa-users"></i> Users</a>
+                        <a href="error-pages.html" data-i18n="nav_errors"><i
+                                class="fa-solid fa-triangle-exclamation"></i> Error Pages</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="figma-docs.html" class="nav-link" data-i18n="nav_figma">
+                        <i class="fa-brands fa-figma"></i> Figma Docs
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Language Toggle -->
+                <button id="lang-toggle" class="lang-switch">
+                    <i class="fa-solid fa-globe"></i> <span id="lang-text">EN</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="action-icon" title="Toggle Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- User Profile Dropdown -->
+                <div class="nav-item nav-dropdown">
+                    <div class="avatar" style="cursor: pointer;">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="nav-dropdown-content">
+                        <div style="padding: 12px 16px; border-bottom: 1px solid var(--color-border);">
+                            <div style="font-weight: 600; color: var(--color-text-primary);">Admin User</div>
+                            <div style="font-size: 12px; color: var(--color-text-muted);">admin@nhealth.com</div>
+                        </div>
+                        <a href="settings.html"><i class="fa-solid fa-user-gear"></i> Profile</a>
+                        <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="login.html" class="text-error" style="color: var(--color-error);"><i
+                                class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 24px; padding-bottom: 48px;">
+        <div class="flex-between mb-6">
+            <div>
+                <h1 style="margin-bottom: 8px;">User Management</h1>
+                <p class="text-muted">Manage user accounts, roles, and permissions</p>
+            </div>
+            <button class="btn btn-primary" onclick="showModal('addUserModal')"><i class="fa-solid fa-user-plus"></i>
+                Add
+                New User</button>
+        </div>
+
+        <!-- Stats Cards -->
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div class="card">
+                <div style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 8px;">Total Users</div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--color-primary-600);">248</div>
+                <div class="text-muted" style="font-size: 12px; margin-top: 4px;">+12 this month</div>
+            </div>
+            <div class="card">
+                <div style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 8px;">Active Users</div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--color-success);">242</div>
+                <div class="text-muted" style="font-size: 12px; margin-top: 4px;">97.6% activity rate</div>
+            </div>
+            <div class="card">
+                <div style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 8px;">Pending Approval
+                </div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--color-warning);">6</div>
+                <div class="text-muted" style="font-size: 12px; margin-top: 4px;">Requires action</div>
+            </div>
+            <div class="card">
+                <div style="font-size: 13px; color: var(--color-text-muted); margin-bottom: 8px;">Departments</div>
+                <div style="font-size: 32px; font-weight: 700; color: var(--color-primary-600);">12</div>
+                <div class="text-muted" style="font-size: 12px; margin-top: 4px;">Across hospital</div>
+            </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="card mb-4" style="padding: 16px 24px;">
+            <div class="flex-between">
+                <div class="flex gap-2">
+                    <select class="form-select" style="width: 150px;">
+                        <option>All Roles</option>
+                        <option>Admin</option>
+                        <option>Doctor</option>
+                        <option>Nurse</option>
+                        <option>Lab Tech</option>
+                    </select>
+                    <select class="form-select" style="width: 150px;">
+                        <option>All Status</option>
+                        <option>Active</option>
+                        <option>Inactive</option>
+                        <option>Pending</option>
+                    </select>
+                </div>
+                <div class="search-container" style="width: 300px;">
+                    <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                    <input type="text" class="form-input search-input" placeholder="Search by name or email..." />
+                </div>
+            </div>
+        </div>
+
+        <!-- User Table -->
+        <div class="table-container">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>User</th>
+                        <th>Role</th>
+                        <th>Department</th>
+                        <th>Status</th>
+                        <th>Last Active</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>
+                            <div class="flex" style="align-items: center; gap: 12px;">
+                                <div class="avatar" style="background: var(--color-primary-800);">JD</div>
+                                <div>
+                                    <div style="font-weight: 500;">Dr. John Doe</div>
+                                    <div style="font-size: 12px; color: var(--color-text-muted);">john.doe@nhealth.com
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge" style="background: #e6f7ff; color: #1890ff;">Admin</span></td>
+                        <td>Cardiology</td>
+                        <td><span class="badge badge-completed">Active</span></td>
+                        <td>2 hours ago</td>
+                        <td>
+                            <div class="flex gap-1">
+                                <button class="btn btn-ghost" style="padding: 4px 8px;"><i
+                                        class="fa-solid fa-pen-to-square"></i> Edit</button>
+                                <button class="btn btn-ghost" style="padding: 4px 8px; color: var(--color-error);"><i
+                                        class="fa-solid fa-ban"></i> Deactivate</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="flex" style="align-items: center; gap: 12px;">
+                                <div class="avatar" style="background: var(--color-error);">SS</div>
+                                <div>
+                                    <div style="font-weight: 500;">Dr. Sarah Smith</div>
+                                    <div style="font-size: 12px; color: var(--color-text-muted);">
+                                        sarah.smith@nhealth.com</div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge" style="background: #f6ffed; color: #52c41a;">Doctor</span></td>
+                        <td>Neurology</td>
+                        <td><span class="badge badge-completed">Active</span></td>
+                        <td>5 hours ago</td>
+                        <td>
+                            <div class="flex gap-1">
+                                <button class="btn btn-ghost" style="padding: 4px 8px;"><i
+                                        class="fa-solid fa-pen-to-square"></i> Edit</button>
+                                <button class="btn btn-ghost" style="padding: 4px 8px; color: var(--color-error);"><i
+                                        class="fa-solid fa-ban"></i> Deactivate</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="flex" style="align-items: center; gap: 12px;">
+                                <div class="avatar" style="background: var(--color-text-muted);">MJ</div>
+                                <div>
+                                    <div style="font-weight: 500;">Mike Johnson</div>
+                                    <div style="font-size: 12px; color: var(--color-text-muted);">mike.j@nhealth.com
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge" style="background: #fffbe6; color: #faad14;">Lab Tech</span></td>
+                        <td>Laboratory</td>
+                        <td><span class="badge badge-completed">Active</span></td>
+                        <td>Yesterday</td>
+                        <td>
+                            <div class="flex gap-1">
+                                <button class="btn btn-ghost" style="padding: 4px 8px;"><i
+                                        class="fa-solid fa-pen-to-square"></i> Edit</button>
+                                <button class="btn btn-ghost" style="padding: 4px 8px; color: var(--color-error);"><i
+                                        class="fa-solid fa-ban"></i> Deactivate</button>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <div class="flex" style="align-items: center; gap: 12px;">
+                                <div class="avatar" style="background: var(--color-accent-900);">LB</div>
+                                <div>
+                                    <div style="font-weight: 500;">Lisa Brown</div>
+                                    <div style="font-size: 12px; color: var(--color-text-muted);">lisa.b@nhealth.com
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td><span class="badge" style="background: #fff7e6; color: #fa8c16;">Nurse</span></td>
+                        <td>Pediatrics</td>
+                        <td><span class="badge badge-pending">Pending</span></td>
+                        <td>Never</td>
+                        <td>
+                            <div class="flex gap-1">
+                                <button class="btn btn-ghost" style="padding: 4px 8px; color: var(--color-success);"><i
+                                        class="fa-solid fa-check"></i> Approve</button>
+                                <button class="btn btn-ghost" style="padding: 4px 8px; color: var(--color-error);"><i
+                                        class="fa-solid fa-xmark"></i> Reject</button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Pagination -->
+        <div class="flex-between"
+            style="margin-top: 16px; padding: 16px; background: var(--color-bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+            <div class="text-muted">Showing 1-4 of 248 users</div>
+            <div class="flex gap-2">
+                <button class="btn btn-secondary" style="padding: 4px 12px;">Previous</button>
+                <button class="btn btn-primary" style="padding: 4px 12px;">1</button>
+                <button class="btn btn-secondary" style="padding: 4px 12px;">2</button>
+                <button class="btn btn-secondary" style="padding: 4px 12px;">3</button>
+                <button class="btn btn-secondary" style="padding: 4px 12px;">Next</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Add User Modal -->
+    <div id="addUserModal" class="modal-overlay" style="display: none;">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title">Add New User</h4>
+                <button onclick="hideModal('addUserModal')"
+                    style="background: none; border: none; font-size: 24px; cursor: pointer; color: var(--color-text-muted);"><i
+                        class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="modal-body">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Email</label>
+                    <input type="email" class="form-input" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Role</label>
+                    <select class="form-select">
+                        <option>Select role</option>
+                        <option>Admin</option>
+                        <option>Doctor</option>
+                        <option>Nurse</option>
+                        <option>Lab Tech</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Department</label>
+                    <select class="form-select">
+                        <option>Select department</option>
+                        <option>Cardiology</option>
+                        <option>Neurology</option>
+                        <option>Pediatrics</option>
+                        <option>Laboratory</option>
+                    </select>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="hideModal('addUserModal')">Cancel</button>
+                <button class="btn btn-primary">Add User</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        function showModal(id) {
+            document.getElementById(id).style.display = 'flex';
+        }
+        function hideModal(id) {
+            document.getElementById(id).style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>

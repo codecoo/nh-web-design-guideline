@@ -1,0 +1,17 @@
+{
+  "name": "n-health-design-system",
+  "version": "1.0.0",
+  "description": "N_Health Web Design System based on Ant Design principles",
+  "scripts": {
+    "dev": "npm run build:css && npm run watch:css",
+    "build": "npm run build:css",
+    "build:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --minify",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./dist/output.css --watch"
+  },
+  "keywords": ["design-system", "tailwind", "n-health", "ant-design"],
+  "author": "N_Health",
+  "license": "MIT",
+  "devDependencies": {
+    "tailwindcss": "^3.4.1"
+  }
+}

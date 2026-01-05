@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Figma Documentation - N Health Web Design Guideline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .docs-container {
+            padding: 48px 0;
+        }
+
+        .docs-header {
+            margin-bottom: 48px;
+            text-align: center;
+        }
+
+        .docs-header h1 {
+            margin-bottom: 16px;
+        }
+
+        .docs-section {
+            background: var(--color-bg-surface);
+            border-radius: var(--radius-lg);
+            border: 1px solid var(--color-border);
+            padding: 32px;
+            margin-bottom: 32px;
+        }
+
+        .docs-section h2 {
+            color: var(--color-primary-600);
+            border-bottom: 2px solid var(--color-primary-100);
+            padding-bottom: 12px;
+            margin-bottom: 24px;
+        }
+
+        .docs-section h3 {
+            color: var(--color-text-primary);
+            margin-top: 24px;
+            margin-bottom: 16px;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .color-swatch {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--color-border);
+        }
+
+        .color-swatch-preview {
+            height: 80px;
+        }
+
+        .color-swatch-info {
+            padding: 12px;
+            background: var(--color-bg-surface);
+        }
+
+        .color-swatch-name {
+            font-weight: 600;
+            font-size: var(--text-sm);
+            margin-bottom: 4px;
+        }
+
+        .color-swatch-hex {
+            font-size: var(--text-xs);
+            color: var(--color-text-muted);
+            font-family: monospace;
+        }
+
+        .typography-sample {
+            padding: 16px 0;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .typography-label {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+            margin-bottom: 8px;
+        }
+
+        .spacing-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .spacing-item {
+            text-align: center;
+        }
+
+        .spacing-block {
+            background: var(--color-primary-100);
+            border: 1px solid var(--color-primary-300);
+            border-radius: var(--radius-sm);
+            margin-bottom: 8px;
+        }
+
+        .spacing-label {
+            font-size: var(--text-sm);
+            font-weight: 500;
+        }
+
+        .icon-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+            margin: 24px 0;
+        }
+
+        .icon-item {
+            text-align: center;
+            padding: 20px;
+            background: var(--color-bg-secondary);
+            border-radius: var(--radius-md);
+            border: 1px solid var(--color-border);
+        }
+
+        .icon-item i {
+            font-size: 28px;
+            color: var(--color-primary-600);
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .icon-item span {
+            font-size: var(--text-sm);
+            color: var(--color-text-muted);
+        }
+
+        .component-preview {
+            background: var(--color-bg-secondary);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            margin: 16px 0;
+        }
+
+        .code-block {
+            background: #1e1e1e;
+            color: #d4d4d4;
+            padding: 16px;
+            border-radius: var(--radius-md);
+            font-family: var(--font-mono);
+            font-size: var(--text-sm);
+            overflow-x: auto;
+            margin: 16px 0;
+        }
+
+        .table-docs {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 16px 0;
+            color: var(--color-text-primary);
+        }
+
+        .table-docs th,
+        .table-docs td {
+            padding: 12px 16px;
+            text-align: left;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .table-docs th {
+            background: var(--color-bg-secondary);
+            font-weight: 600;
+            color: var(--color-text-muted);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- New Unified Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/n_health_logo.png" alt="N Health" class="nav-logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-i18n="nav_overview">
+                        <i class="fa-solid fa-house"></i> Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="components-demo.html" class="nav-link" data-i18n="nav_components">
+                        <i class="fa-solid fa-cube"></i> Components
+                    </a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#" class="nav-link active" data-i18n="nav_pages">
+                        <i class="fa-solid fa-file"></i> Pages <i class="fa-solid fa-chevron-down"
+                            style="font-size: 14px;"></i>
+                    </a>
+                    <div class="nav-dropdown-content">
+                        <a href="dashboard-demo.html" data-i18n="nav_dashboard"><i class="fa-solid fa-border-all"></i>
+                            Dashboard</a>
+                        <a href="data-table-crud.html" data-i18n="nav_crud"><i class="fa-solid fa-table"></i> CRUD
+                            Table</a>
+                        <a href="settings.html" data-i18n="nav_settings"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="user-management.html" data-i18n="nav_users"><i class="fa-solid fa-users"></i> Users</a>
+                        <a href="error-pages.html" data-i18n="nav_errors"><i
+                                class="fa-solid fa-triangle-exclamation"></i> Error Pages</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="figma-docs.html" class="nav-link" data-i18n="nav_figma">
+                        <i class="fa-brands fa-figma"></i> Figma Docs
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Language Toggle -->
+                <button id="lang-toggle" class="lang-switch">
+                    <i class="fa-solid fa-globe"></i> <span id="lang-text">EN</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="action-icon" title="Toggle Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- User Profile Dropdown -->
+                <div class="nav-item nav-dropdown">
+                    <div class="avatar" style="cursor: pointer;">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="nav-dropdown-content">
+                        <div style="padding: 12px 16px; border-bottom: 1px solid var(--color-border);">
+                            <div style="font-weight: 600; color: var(--color-text-primary);">Admin User</div>
+                            <div style="font-size: 12px; color: var(--color-text-muted);">admin@nhealth.com</div>
+                        </div>
+                        <a href="settings.html"><i class="fa-solid fa-user-gear"></i> Profile</a>
+                        <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="login.html" class="text-error" style="color: var(--color-error);"><i
+                                class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container docs-container">
+        <!-- Header -->
+        <div class="docs-header">
+            <h1><i class="fa-brands fa-figma" style="color: var(--color-primary-600);"></i> Figma Documentation</h1>
+            <p class="text-muted" style="font-size: var(--text-lg);">Design system specifications and guidelines for
+                N Health</p>
+        </div>
+
+        <!-- Color System -->
+        <section class="docs-section">
+            <h2><i class="fa-solid fa-palette"></i> Color System</h2>
+
+            <h3>Primary Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background: #f0f5ff;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Primary 50</div>
+                        <div class="color-swatch-hex">#f0f5ff</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background: #2f54eb;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Primary 500</div>
+                        <div class="color-swatch-hex">#2f54eb</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background: #1d39c4;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Primary 600</div>
+                        <div class="color-swatch-hex">#1d39c4</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background: #061178;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Primary 800</div>
+                        <div class="color-swatch-hex">#061178</div>
+                    </div>
+                </div>
+            </div>
+
+            <h3>Status Colors</h3>
+            <div class="color-grid">
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background: #10b981;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Success</div>
+                        <div class="color-swatch-hex">#10b981</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background: #f59e0b;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Warning</div>
+                        <div class="color-swatch-hex">#f59e0b</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background: #ef4444;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Error</div>
+                        <div class="color-swatch-hex">#ef4444</div>
+                    </div>
+                </div>
+                <div class="color-swatch">
+                    <div class="color-swatch-preview" style="background: #3b82f6;"></div>
+                    <div class="color-swatch-info">
+                        <div class="color-swatch-name">Info</div>
+                        <div class="color-swatch-hex">#3b82f6</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section class="docs-section">
+            <h2><i class="fa-solid fa-font"></i> Typography</h2>
+
+            <h3>Font Family</h3>
+            <p><strong>Primary Font:</strong> DB Helvethaica X</p>
+            <p><strong>Fallback:</strong> -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue',
+                Arial, sans-serif</p>
+            <p style="margin-top: 8px;">Note: Font weights use 400 (Regular), 500 (Medium), and 600/700 (Bold).</p>
+
+            <h3 style="margin-top: 24px;">Type Scale</h3>
+            <div class="typography-sample">
+                <div class="typography-label">Heading 1 — 48px Bold</div>
+                <h1 style="margin: 0;">The quick brown fox</h1>
+            </div>
+            <div class="typography-sample">
+                <div class="typography-label">Heading 2 — 38px Bold</div>
+                <h2 style="margin: 0;">The quick brown fox</h2>
+            </div>
+            <div class="typography-sample">
+                <div class="typography-label">Heading 3 — 30px Bold</div>
+                <h3 style="margin: 0;">The quick brown fox</h3>
+            </div>
+            <div class="typography-sample">
+                <div class="typography-label">Heading 4 — 22px Bold</div>
+                <h4 style="margin: 0;">The quick brown fox</h4>
+            </div>
+            <div class="typography-sample">
+                <div class="typography-label">Body Large — 18px Regular</div>
+                <p style="font-size: var(--text-lg); margin: 0;">The quick brown fox jumps over the lazy dog.
+                    ภาษาไทยสามารถแสดงผลได้</p>
+            </div>
+            <div class="typography-sample">
+                <div class="typography-label">Body Base — 16px Regular</div>
+                <p style="font-size: var(--text-base); margin: 0;">The quick brown fox jumps over the lazy dog.
+                    ภาษาไทยสามารถแสดงผลได้</p>
+            </div>
+            <div class="typography-sample">
+                <div class="typography-label">Body Small — 15px Regular</div>
+                <p style="font-size: var(--text-sm); margin: 0;">The quick brown fox jumps over the lazy dog.
+                    ภาษาไทยสามารถแสดงผลได้</p>
+            </div>
+        </section>
+
+        <!-- Spacing -->
+        <section class="docs-section">
+            <h2><i class="fa-solid fa-ruler-combined"></i> Spacing System</h2>
+            <p>Based on a 4px grid system for consistent and harmonious layouts.</p>
+
+            <div class="spacing-grid">
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width: 4px; height: 32px;"></div>
+                    <div class="spacing-label">4px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width: 8px; height: 32px;"></div>
+                    <div class="spacing-label">8px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width: 12px; height: 32px;"></div>
+                    <div class="spacing-label">12px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width: 16px; height: 32px;"></div>
+                    <div class="spacing-label">16px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width: 24px; height: 32px;"></div>
+                    <div class="spacing-label">24px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width: 32px; height: 32px;"></div>
+                    <div class="spacing-label">32px</div>
+                </div>
+                <div class="spacing-item">
+                    <div class="spacing-block" style="width: 48px; height: 32px;"></div>
+                    <div class="spacing-label">48px</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Icons -->
+        <section class="docs-section">
+            <h2><i class="fa-solid fa-icons"></i> Iconography</h2>
+            <p><strong>Library:</strong> Font Awesome 6 Free (Solid)</p>
+            <p><strong>CDN:</strong>
+                <code>https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css</code>
+            </p>
+
+            <h3>Common Icons</h3>
+            <div class="icon-grid">
+                <div class="icon-item">
+                    <i class="fa-solid fa-house"></i>
+                    <span>fa-house</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-user"></i>
+                    <span>fa-user</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-gear"></i>
+                    <span>fa-gear</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <span>fa-magnifying-glass</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-bell"></i>
+                    <span>fa-bell</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-plus"></i>
+                    <span>fa-plus</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-trash"></i>
+                    <span>fa-trash</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-pen-to-square"></i>
+                    <span>fa-pen-to-square</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-check"></i>
+                    <span>fa-check</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-xmark"></i>
+                    <span>fa-xmark</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-chevron-down"></i>
+                    <span>fa-chevron-down</span>
+                </div>
+                <div class="icon-item">
+                    <i class="fa-solid fa-file-export"></i>
+                    <span>fa-file-export</span>
+                </div>
+            </div>
+
+            <h3>Usage</h3>
+            <div class="code-box-container">
+                <div class="code-box-header">
+                    <span class="code-lang-tag">HTML</span>
+                    <button class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button>
+                </div>
+                <pre class="code-preview">&lt;i class="fa-solid fa-icon-name"&gt;&lt;/i&gt;</pre>
+            </div>
+        </section>
+
+        <!-- Components -->
+        <section class="docs-section">
+            <h2><i class="fa-solid fa-puzzle-piece"></i> Components</h2>
+
+            <h3>Buttons</h3>
+            <div class="component-preview">
+                <div class="flex gap-4" style="flex-wrap: wrap;">
+                    <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> Primary</button>
+                    <button class="btn btn-secondary"><i class="fa-solid fa-filter"></i> Secondary</button>
+                    <button class="btn btn-ghost"><i class="fa-solid fa-eye"></i> Ghost</button>
+                </div>
+            </div>
+
+            <h3>Badges</h3>
+            <div class="component-preview">
+                <div class="flex gap-4" style="flex-wrap: wrap;">
+                    <span class="badge badge-completed">Completed</span>
+                    <span class="badge badge-processing">Processing</span>
+                    <span class="badge badge-pending">Pending</span>
+                    <span class="badge badge-rejected">Rejected</span>
+                </div>
+            </div>
+
+            <h3>Form Elements</h3>
+            <div class="component-preview">
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label">Text Input</label>
+                        <input type="text" class="form-input" placeholder="Enter text..." />
+                    </div>
+                    <div class="form-group" style="margin-bottom: 0;">
+                        <label class="form-label">Select</label>
+                        <select class="form-select">
+                            <option>Choose option</option>
+                            <option>Option 1</option>
+                            <option>Option 2</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Design Principles -->
+        <section class="docs-section">
+            <h2><i class="fa-solid fa-lightbulb"></i> Design Principles</h2>
+
+            <table class="table-docs">
+                <thead>
+                    <tr>
+                        <th>Principle</th>
+                        <th>Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><strong>Natural</strong></td>
+                        <td>Visual system derived from nature with intuitive, familiar elements</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Certain</strong></td>
+                        <td>Highly certain interface that reduces ambiguity and user confusion</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Meaningful</strong></td>
+                        <td>Every element has a clear purpose and contributes to the user experience</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Professional</strong></td>
+                        <td>Clean, trusted medical aesthetic using a modern blue/teal palette</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <!-- Resources -->
+        <section class="docs-section">
+            <h2><i class="fa-solid fa-link"></i> Resources</h2>
+
+            <div class="grid grid-cols-2 gap-4">
+                <div class="card">
+                    <h4><i class="fa-solid fa-font"></i> Typography</h4>
+                    <p class="text-muted">DB Helvethaica X (Local Asset)</p>
+                    <p>Located in: <code>assets/fonts/</code></p>
+                </div>
+                <div class="card">
+                    <h4><i class="fa-solid fa-icons"></i> Icons</h4>
+                    <p class="text-muted">Font Awesome 6 Free</p>
+                    <a href="https://fontawesome.com/icons" target="_blank" class="btn btn-secondary"
+                        style="margin-top: 8px;">
+                        <i class="fa-solid fa-external-link"></i> Browse Icons
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

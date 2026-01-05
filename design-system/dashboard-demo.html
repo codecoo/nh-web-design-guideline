@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Lab Portal - N Health Web Design Guideline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .dashboard-header {
+            background: var(--color-bg-surface);
+            border-bottom: 1px solid var(--color-border);
+            padding: 12px 0;
+        }
+
+        .stat-card {
+            background: var(--color-bg-surface);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            box-shadow: var(--shadow-card);
+            border: 1px solid var(--color-border);
+        }
+
+        .stat-value {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 12px 0 8px;
+        }
+
+        .stat-label {
+            font-size: 14px;
+            color: var(--color-text-muted);
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-change {
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        .quick-action-btn {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px;
+            background: var(--color-bg-surface);
+            border: 1px solid var(--color-border);
+            border-radius: var(--radius-lg);
+            cursor: pointer;
+            transition: all 0.2s;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .quick-action-btn:hover {
+            border-color: var(--color-primary-600);
+            box-shadow: var(--shadow-card);
+            color: var(--color-primary-600);
+            background-color: var(--color-bg-secondary);
+        }
+
+        .system-status-card {
+            background: var(--color-primary-900);
+            color: white;
+            border-radius: var(--radius-lg);
+            padding: 20px;
+        }
+
+        .filter-tabs {
+            display: flex;
+            gap: 24px;
+            border-bottom: 2px solid var(--color-border);
+            margin-bottom: 24px;
+        }
+
+        .filter-tab {
+            padding: 12px 0;
+            cursor: pointer;
+            border-bottom: 3px solid transparent;
+            margin-bottom: -2px;
+            font-weight: 600;
+            color: var(--color-text-muted);
+            font-size: 16px;
+        }
+
+        .filter-tab.active {
+            color: var(--color-primary-600);
+            border-bottom-color: var(--color-primary-600);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- New Unified Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/n_health_logo.png" alt="N Health" class="nav-logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-i18n="nav_overview">
+                        <i class="fa-solid fa-house"></i> Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="components-demo.html" class="nav-link" data-i18n="nav_components">
+                        <i class="fa-solid fa-cube"></i> Components
+                    </a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#" class="nav-link active" data-i18n="nav_pages">
+                        <i class="fa-solid fa-file"></i> Pages <i class="fa-solid fa-chevron-down"
+                            style="font-size: 14px;"></i>
+                    </a>
+                    <div class="nav-dropdown-content">
+                        <a href="dashboard-demo.html" data-i18n="nav_dashboard"><i class="fa-solid fa-border-all"></i>
+                            Dashboard</a>
+                        <a href="data-table-crud.html" data-i18n="nav_crud"><i class="fa-solid fa-table"></i> CRUD
+                            Table</a>
+                        <a href="settings.html" data-i18n="nav_settings"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="user-management.html" data-i18n="nav_users"><i class="fa-solid fa-users"></i> Users</a>
+                        <a href="error-pages.html" data-i18n="nav_errors"><i
+                                class="fa-solid fa-triangle-exclamation"></i> Error Pages</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="figma-docs.html" class="nav-link" data-i18n="nav_figma">
+                        <i class="fa-brands fa-figma"></i> Figma Docs
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Language Toggle -->
+                <button id="lang-toggle" class="lang-switch">
+                    <i class="fa-solid fa-globe"></i> <span id="lang-text">EN</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="action-icon" title="Toggle Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- User Profile Dropdown -->
+                <div class="nav-item nav-dropdown">
+                    <div class="avatar" style="cursor: pointer;">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="nav-dropdown-content">
+                        <div style="padding: 12px 16px; border-bottom: 1px solid var(--color-border);">
+                            <div style="font-weight: 600; color: var(--color-text-primary);">Dr. Sirada</div>
+                            <div style="font-size: 12px; color: var(--color-text-muted);">sirada.s@nhealth.com</div>
+                        </div>
+                        <a href="settings.html"><i class="fa-solid fa-user-gear"></i> Profile</a>
+                        <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="login.html" class="text-error" style="color: var(--color-error);"><i
+                                class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 24px; padding-bottom: 48px;">
+        <!-- Breadcrumb -->
+        <div style="margin-bottom: 16px; font-size: 14px; color: var(--color-text-muted);">
+            <span>Home</span> / <span>Dashboard</span> / <span
+                style="color: var(--color-text-primary); font-weight: 500;">Lab
+                Portal</span>
+        </div>
+
+        <h1 style="margin-bottom: 8px;">Patient Lab Portal</h1>
+        <div class="flex-between" style="margin-bottom: 24px;">
+            <div style="font-size: 14px; color: var(--color-text-muted);">
+                <span style="display: inline-flex; align-items: center; gap: 8px;">
+                    <i class="fa-solid fa-user-doctor" style="font-size: 16px;"></i>
+                    Dr. Sirada Sathongchai
+                </span>
+                <span style="margin: 0 12px;">•</span>
+                <span>Last login: 2 hours ago</span>
+            </div>
+            <button class="btn btn-primary"><i class="fa-solid fa-plus"></i> New Request</button>
+        </div>
+
+        <!-- Stats Grid -->
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div class="stat-card">
+                <div class="stat-label">Total Cases</div>
+                <div class="stat-value" style="color: var(--color-primary-600);">1,248</div>
+                <div class="stat-change text-muted">-12% Compared to last week</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Pending Results</div>
+                <div class="stat-value" style="color: var(--color-error);">48</div>
+                <div class="stat-change text-muted">-5% Urgent attention needed</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Daily Target</div>
+                <div class="stat-value" style="color: var(--color-success);">85%</div>
+                <div class="progress-bar"
+                    style="margin-top: 12px; height: 8px; background: var(--color-bg-secondary); border-radius: 4px; overflow: hidden;">
+                    <div class="progress-fill" style="width: 85%; background: var(--color-success); height: 100%;">
+                    </div>
+                </div>
+                <div class="stat-change text-muted" style="margin-top: 8px;">85% Meeting SLA</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-label">Avg Turnaround</div>
+                <div class="stat-value" style="color: var(--color-primary-600);">4.2h</div>
+                <div class="stat-change text-muted">0% Meeting SLA</div>
+            </div>
+        </div>
+
+        <div class="grid" style="grid-template-columns: 1fr 280px; gap: 24px;">
+            <!-- Main Content -->
+            <div>
+                <!-- Filter Tabs -->
+                <div class="filter-tabs">
+                    <div class="filter-tab active">All Results</div>
+                    <div class="filter-tab">Pending Action</div>
+                    <div class="filter-tab">Completed</div>
+                </div>
+
+                <!-- Actions Bar -->
+                <div class="flex-between mb-4">
+                    <div class="search-container" style="width: 300px;">
+                        <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                        <input type="text" class="form-input search-input" placeholder="Search Patient HN..." />
+                    </div>
+                    <div class="flex gap-2">
+                        <button class="btn btn-secondary"><i class="fa-solid fa-filter"></i> Filter</button>
+                        <button class="btn btn-secondary"><i class="fa-solid fa-table-columns"></i> Columns</button>
+                        <div class="flex" style="align-items: center; gap: 8px;">
+                            <span style="font-size: 13px; color: var(--color-text-muted);">Auto-refresh</span>
+                            <label class="toggle">
+                                <input type="checkbox" class="toggle-input" checked />
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Table -->
+                <div class="table-container">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>Patient</th>
+                                <th>Test Name</th>
+                                <th>Status</th>
+                                <th>Date</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div class="flex" style="align-items: center; gap: 12px;">
+                                        <div class="avatar">WS</div>
+                                        <div>
+                                            <div style="font-weight: 500;">Wichai S.</div>
+                                            <div style="font-size: 12px; color: var(--color-text-muted);">HN 89201
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Complete Blood Count</td>
+                                <td><span class="badge badge-completed">Completed</span></td>
+                                <td>2023-10-24</td>
+                                <td><button class="btn btn-ghost" style="font-size: 13px;">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex" style="align-items: center; gap: 12px;">
+                                        <div class="avatar">NT</div>
+                                        <div>
+                                            <div style="font-weight: 500;">Nipa T.</div>
+                                            <div style="font-size: 12px; color: var(--color-text-muted);">HN 89202
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Lipid Profile</td>
+                                <td><span class="badge badge-processing">Processing</span></td>
+                                <td>2023-10-24</td>
+                                <td><button class="btn btn-ghost" style="font-size: 13px;">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex" style="align-items: center; gap: 12px;">
+                                        <div class="avatar">SR</div>
+                                        <div>
+                                            <div style="font-weight: 500;">Somchai R.</div>
+                                            <div style="font-size: 12px; color: var(--color-text-muted);">HN 89203
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Liver Function</td>
+                                <td><span class="badge badge-pending">Pending</span></td>
+                                <td>2023-10-23</td>
+                                <td><button class="btn btn-ghost" style="font-size: 13px;">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex" style="align-items: center; gap: 12px;">
+                                        <div class="avatar">KP</div>
+                                        <div>
+                                            <div style="font-weight: 500;">Kanya P.</div>
+                                            <div style="font-size: 12px; color: var(--color-text-muted);">HN 89204
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>Urinalysis</td>
+                                <td><span class="badge badge-rejected">Rejected</span></td>
+                                <td>2023-10-23</td>
+                                <td><button class="btn btn-ghost" style="font-size: 13px;">View</button></td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="flex" style="align-items: center; gap: 12px;">
+                                        <div class="avatar">JB</div>
+                                        <div>
+                                            <div style="font-weight: 500;">James B.</div>
+                                            <div style="font-size: 12px; color: var(--color-text-muted);">HN 89205
+                                            </div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>COVID-19 PCR</td>
+                                <td><span class="badge badge-completed">Completed</span></td>
+                                <td>2023-10-22</td>
+                                <td><button class="btn btn-ghost" style="font-size: 13px;">View</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Pagination -->
+                <div class="flex-between"
+                    style="margin-top: 16px; padding: 16px; background: var(--color-bg-surface); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+                    <div style="font-size: 13px; color: var(--color-text-muted);">Showing 1-5 of 1,248 results</div>
+                    <div class="flex gap-2">
+                        <button class="btn btn-secondary" style="padding: 4px 12px;">Previous</button>
+                        <button class="btn btn-primary" style="padding: 4px 12px;">1</button>
+                        <button class="btn btn-secondary" style="padding: 4px 12px;">2</button>
+                        <button class="btn btn-secondary" style="padding: 4px 12px;">3</button>
+                        <button class="btn btn-secondary" style="padding: 4px 12px;">Next</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sidebar -->
+            <div>
+                <!-- System Status -->
+                <div class="system-status-card mb-4">
+                    <h4 style="color: white; margin-bottom: 12px;">System Status</h4>
+                    <p style="font-size: 13px; margin-bottom: 16px; opacity: 0.9;">Central Lab Maintenance scheduled.
+                    </p>
+                    <button class="btn"
+                        style="background: white; color: var(--color-primary-900); border: none; width: 100%;">View
+                        Details</button>
+                </div>
+
+                <!-- Quick Actions -->
+                <div class="card">
+                    <h4 class="mb-4">Quick Actions</h4>
+                    <div style="display: flex; flex-direction: column; gap: 12px;">
+                        <a href="#" class="quick-action-btn">
+                            <i class="fa-solid fa-user-plus" style="font-size: 20px;"></i>
+                            <span style="font-size: 14px; font-weight: 500;">Register New Patient</span>
+                        </a>
+                        <a href="#" class="quick-action-btn">
+                            <i class="fa-solid fa-print" style="font-size: 20px;"></i>
+                            <span style="font-size: 14px; font-weight: 500;">Print Lab Labels</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+
+</html>

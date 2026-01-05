@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - N_Health</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .signup-container {
+            min-height: calc(100vh - 72px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-900) 100%);
+            padding: 24px;
+        }
+
+        .signup-card {
+            background: white;
+            border-radius: var(--radius-xl);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 48px;
+            width: 100%;
+            max-width: 500px;
+        }
+
+        .signup-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .signup-logo h2 {
+            color: var(--color-primary-800);
+            margin-top: 16px;
+        }
+
+        .password-strength {
+            height: 4px;
+            background: var(--color-neutral-200);
+            border-radius: 2px;
+            margin-top: 8px;
+            overflow: hidden;
+        }
+
+        .password-strength-fill {
+            height: 100%;
+            transition: width 0.3s, background-color 0.3s;
+        }
+
+        .password-strength-fill.weak {
+            width: 33%;
+            background-color: var(--color-error);
+        }
+
+        .password-strength-fill.medium {
+            width: 66%;
+            background-color: var(--color-warning);
+        }
+
+        .password-strength-fill.strong {
+            width: 100%;
+            background-color: var(--color-success);
+        }
+    </style>
+</head>
+
+<body>
+    <!-- New Unified Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/n_health_logo.png" alt="N Health" class="nav-logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link">
+                        <i class="fa-solid fa-house"></i> Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="components-demo.html" class="nav-link">
+                        <i class="fa-solid fa-cube"></i> Components
+                    </a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#" class="nav-link">
+                        <i class="fa-solid fa-file"></i> Pages <i class="fa-solid fa-chevron-down"
+                            style="font-size: 14px;"></i>
+                    </a>
+                    <div class="nav-dropdown-content">
+                        <a href="dashboard-demo.html"><i class="fa-solid fa-border-all"></i> Dashboard</a>
+                        <a href="data-table-crud.html"><i class="fa-solid fa-table"></i> CRUD Table</a>
+                        <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="user-management.html"><i class="fa-solid fa-users"></i> Users</a>
+                        <a href="error-pages.html"><i class="fa-solid fa-triangle-exclamation"></i> Error Pages</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="figma-docs.html" class="nav-link">
+                        <i class="fa-brands fa-figma"></i> Figma Docs
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="login.html" class="nav-link">
+                        <i class="fa-solid fa-right-to-bracket"></i> Login
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="signup-container">
+        <div class="signup-card">
+            <div class="signup-logo">
+                <img src="assets/n_health_logo.png" alt="N Health"
+                    style="height: 80px; width: auto; margin-bottom: 16px;">
+                <h2>Create Account</h2>
+                <p class="text-muted">Join N_Health today</p>
+            </div>
+
+            <form>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="form-group">
+                        <label class="form-label">First Name</label>
+                        <input type="text" class="form-input" placeholder="John" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Last Name</label>
+                        <input type="text" class="form-input" placeholder="Doe" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-input" placeholder="doctor@nhealth.com" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Phone Number</label>
+                    <input type="tel" class="form-input" placeholder="+66 XX XXX XXXX" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <input type="password" class="form-input" id="password" placeholder="Create a strong password" />
+                    <div class="password-strength">
+                        <div class="password-strength-fill strong"></div>
+                    </div>
+                    <span class="text-muted" style="font-size: 12px; display: block; margin-top: 4px;">Strong
+                        password</span>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Confirm Password</label>
+                    <input type="password" class="form-input" placeholder="Re-enter your password" />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Department</label>
+                    <select class="form-select">
+                        <option>Select department</option>
+                        <option>Cardiology</option>
+                        <option>Neurology</option>
+                        <option>Pediatrics</option>
+                        <option>Radiology</option>
+                        <option>Laboratory</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label style="display: flex; align-items: start; cursor: pointer;">
+                        <input type="checkbox" class="form-checkbox" style="margin-top: 2px;" />
+                        <span style="margin-left: 8px; font-size: 13px; color: var(--color-neutral-500);">
+                            I agree to the <a href="#" style="color: var(--color-primary-800);">Terms and Conditions</a>
+                            and <a href="#" style="color: var(--color-primary-800);">Privacy Policy</a>
+                        </span>
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px;">
+                    Create Account
+                </button>
+
+                <div style="text-align: center; margin-top: 24px; font-size: 14px; color: var(--color-neutral-500);">
+                    Already have an account? <a href="login.html"
+                        style="color: var(--color-primary-800); text-decoration: none;">Sign
+                        in</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Password strength indicator
+        const passwordInput = document.getElementById('password');
+        const strengthBar = document.querySelector('.password-strength-fill');
+        const strengthText = document.querySelector('.password-strength + .text-muted');
+
+        passwordInput.addEventListener('input', function () {
+            const password = this.value;
+            let strength = 0;
+
+            if (password.length >= 8) strength++;
+            if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength++;
+            if (password.match(/[0-9]/)) strength++;
+            if (password.match(/[^a-zA-Z0-9]/)) strength++;
+
+            strengthBar.className = 'password-strength-fill';
+            if (strength <= 1) {
+                strengthBar.classList.add('weak');
+                strengthText.textContent = 'Weak password';
+            } else if (strength <= 3) {
+                strengthBar.classList.add('medium');
+                strengthText.textContent = 'Medium password';
+            } else {
+                strengthBar.classList.add('strong');
+                strengthText.textContent = 'Strong password';
+            }
+        });
+    </script>
+</body>
+
+</html>

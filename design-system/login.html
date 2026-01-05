@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - N Health Web Design Guideline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .login-container {
+            min-height: calc(100vh - 72px);
+            /* Subtract nav height */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--color-primary-800) 0%, var(--color-primary-900) 100%);
+            padding: 24px;
+        }
+
+        .login-card {
+            background: var(--color-bg-surface);
+            border-radius: var(--radius-xl);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 48px;
+            width: 100%;
+            max-width: 440px;
+            border: 1px solid var(--color-border);
+        }
+
+        .login-logo {
+            text-align: center;
+            margin-bottom: 32px;
+        }
+
+        .login-logo h2 {
+            color: var(--color-primary-600);
+            margin-top: 16px;
+        }
+
+        .login-footer {
+            text-align: center;
+            margin-top: 24px;
+            font-size: 14px;
+            color: var(--color-text-muted);
+        }
+
+        .login-footer a {
+            color: var(--color-primary-600);
+            text-decoration: none;
+        }
+
+        .divider {
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin: 24px 0;
+            color: var(--color-text-muted);
+            font-size: 14px;
+        }
+
+        .divider::before,
+        .divider::after {
+            content: '';
+            flex: 1;
+            border-bottom: 1px solid var(--color-border);
+        }
+
+        .divider span {
+            padding: 0 12px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- New Unified Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/n_health_logo.png" alt="N Health" class="nav-logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-i18n="nav_overview">
+                        <i class="fa-solid fa-house"></i> Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="components-demo.html" class="nav-link" data-i18n="nav_components">
+                        <i class="fa-solid fa-cube"></i> Components
+                    </a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#" class="nav-link" data-i18n="nav_pages">
+                        <i class="fa-solid fa-file"></i> Pages <i class="fa-solid fa-chevron-down"
+                            style="font-size: 14px;"></i>
+                    </a>
+                    <div class="nav-dropdown-content">
+                        <a href="dashboard-demo.html" data-i18n="nav_dashboard"><i class="fa-solid fa-border-all"></i>
+                            Dashboard</a>
+                        <a href="data-table-crud.html" data-i18n="nav_crud"><i class="fa-solid fa-table"></i> CRUD
+                            Table</a>
+                        <a href="settings.html" data-i18n="nav_settings"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="user-management.html" data-i18n="nav_users"><i class="fa-solid fa-users"></i> Users</a>
+                        <a href="error-pages.html" data-i18n="nav_errors"><i
+                                class="fa-solid fa-triangle-exclamation"></i> Error Pages</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="figma-docs.html" class="nav-link" data-i18n="nav_figma">
+                        <i class="fa-brands fa-figma"></i> Figma Docs
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Language Toggle -->
+                <button id="lang-toggle" class="lang-switch">
+                    <i class="fa-solid fa-globe"></i> <span id="lang-text">EN</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="action-icon" title="Toggle Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- User Profile Dropdown -->
+                <div class="nav-item nav-dropdown">
+                    <div class="avatar" style="cursor: pointer;">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="nav-dropdown-content">
+                        <div style="padding: 12px 16px; border-bottom: 1px solid var(--color-border);">
+                            <div style="font-weight: 600; color: var(--color-text-primary);">Demo Admin</div>
+                            <div style="font-size: 12px; color: var(--color-text-muted);">demo@nhealth.com</div>
+                        </div>
+                        <a href="settings.html"><i class="fa-solid fa-user-gear"></i> Profile</a>
+                        <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="login.html" class="text-error" style="color: var(--color-error);"><i
+                                class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="login-container">
+        <div class="login-card">
+            <div class="login-logo">
+                <img src="assets/n_health_logo.png" alt="N Health"
+                    style="height: 80px; width: auto; margin-bottom: 16px;">
+                <p class="text-muted">Sign in to your account</p>
+            </div>
+
+            <!-- Azure AD Login -->
+            <button type="button" class="btn btn-azure" onclick="alert('Azure AD SSO login would redirect here')">
+                <svg class="microsoft-icon" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    style="margin-right: 8px;">
+                    <path d="M0 0h11v11H0V0z" fill="#F35325" />
+                    <path d="M12 0h11v11H12V0z" fill="#81BC06" />
+                    <path d="M0 12h11v11H0V12z" fill="#05A6F0" />
+                    <path d="M12 12h11v11H12V12z" fill="#FFBA08" />
+                </svg>
+                Sign in with Microsoft
+            </button>
+
+            <div class="divider">
+                <span>OR</span>
+            </div>
+
+            <form id="loginForm">
+                <div class="form-group">
+                    <label class="form-label">Email / Username</label>
+                    <div class="search-container">
+                        <i class="fa-solid fa-envelope search-icon"></i>
+                        <input type="text" class="form-input search-input" id="username"
+                            placeholder="doctor@nhealth.com" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-label">Password</label>
+                    <div class="search-container">
+                        <i class="fa-solid fa-lock search-icon"></i>
+                        <input type="password" class="form-input search-input" id="password"
+                            placeholder="Enter your password" />
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 24px;">
+                    <div class="flex-between">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" class="form-checkbox" />
+                            <span style="margin-left: 8px; font-size: 16px;">Remember me</span>
+                        </label>
+                        <a href="#"
+                            style="color: var(--color-primary-600); text-decoration: none; font-size: 14px;">Forgot
+                            password?</a>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    Sign In
+                </button>
+
+                <div class="login-footer">
+                    Don't have an account? <a href="#">Create one</a>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            // Redirect to dashboard demo
+            window.location.href = 'dashboard-demo.html';
+        });
+    </script>
+</body>
+
+</html>

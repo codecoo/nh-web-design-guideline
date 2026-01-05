@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Settings - N Health Web Design Guideline</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <!-- New Unified Top Navigation -->
+    <nav class="top-nav">
+        <div class="top-nav-container">
+            <a href="index.html" class="nav-logo">
+                <img src="assets/n_health_logo.png" alt="N Health" class="nav-logo-image">
+            </a>
+
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="index.html" class="nav-link" data-i18n="nav_overview">
+                        <i class="fa-solid fa-house"></i> Overview
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="components-demo.html" class="nav-link" data-i18n="nav_components">
+                        <i class="fa-solid fa-cube"></i> Components
+                    </a>
+                </li>
+                <li class="nav-item nav-dropdown">
+                    <a href="#" class="nav-link active" data-i18n="nav_pages">
+                        <i class="fa-solid fa-file"></i> Pages <i class="fa-solid fa-chevron-down"
+                            style="font-size: 14px;"></i>
+                    </a>
+                    <div class="nav-dropdown-content">
+                        <a href="dashboard-demo.html" data-i18n="nav_dashboard"><i class="fa-solid fa-border-all"></i>
+                            Dashboard</a>
+                        <a href="data-table-crud.html" data-i18n="nav_crud"><i class="fa-solid fa-table"></i> CRUD
+                            Table</a>
+                        <a href="settings.html" data-i18n="nav_settings"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="user-management.html" data-i18n="nav_users"><i class="fa-solid fa-users"></i> Users</a>
+                        <a href="error-pages.html" data-i18n="nav_errors"><i
+                                class="fa-solid fa-triangle-exclamation"></i> Error Pages</a>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a href="figma-docs.html" class="nav-link" data-i18n="nav_figma">
+                        <i class="fa-brands fa-figma"></i> Figma Docs
+                    </a>
+                </li>
+            </ul>
+
+            <div class="nav-actions">
+                <!-- Language Toggle -->
+                <button id="lang-toggle" class="lang-switch">
+                    <i class="fa-solid fa-globe"></i> <span id="lang-text">EN</span>
+                </button>
+
+                <!-- Theme Toggle -->
+                <button id="theme-toggle" class="action-icon" title="Toggle Dark Mode">
+                    <i id="theme-icon" class="fa-solid fa-moon"></i>
+                </button>
+
+                <!-- User Profile Dropdown -->
+                <div class="nav-item nav-dropdown">
+                    <div class="avatar" style="cursor: pointer;">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="nav-dropdown-content">
+                        <div style="padding: 12px 16px; border-bottom: 1px solid var(--color-border);">
+                            <div style="font-weight: 600; color: var(--color-text-primary);">Dr. Sirada</div>
+                            <div style="font-size: 12px; color: var(--color-text-muted);">sirada.s@nhealth.com</div>
+                        </div>
+                        <a href="settings.html"><i class="fa-solid fa-user-gear"></i> Profile</a>
+                        <a href="settings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+                        <a href="login.html" class="text-error" style="color: var(--color-error);"><i
+                                class="fa-solid fa-right-from-bracket"></i> Logout</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding-top: 24px; padding-bottom: 48px;">
+        <h1 class="mb-6">Account Settings</h1>
+
+        <!-- Tabs -->
+        <div class="tabs">
+            <ul class="tabs-nav">
+                <li class="tab-item active" onclick="switchTab('profile')"><i class="fa-solid fa-user"></i> Profile</li>
+                <li class="tab-item" onclick="switchTab('security')"><i class="fa-solid fa-lock"></i> Security</li>
+                <li class="tab-item" onclick="switchTab('notifications')"><i class="fa-solid fa-bell"></i> Notifications
+                </li>
+                <li class="tab-item" onclick="switchTab('preferences')"><i class="fa-solid fa-gear"></i> Preferences
+                </li>
+            </ul>
+        </div>
+
+        <!-- Profile Tab -->
+        <div id="profile-tab" class="tab-content">
+            <div class="card mb-6">
+                <h4 class="mb-4">Personal Information</h4>
+                <div class="flex gap-6 mb-6">
+                    <div>
+                        <div class="avatar" style="width: 80px; height: 80px; font-size: 32px;">JD</div>
+                        <button class="btn btn-secondary"
+                            style="margin-top: 12px; font-size: 12px; padding: 6px 12px;"><i
+                                class="fa-solid fa-camera"></i>
+                            Change Photo</button>
+                    </div>
+                    <div style="flex: 1;">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="form-group">
+                                <label class="form-label">First Name</label>
+                                <input type="text" class="form-input" value="John" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Last Name</label>
+                                <input type="text" class="form-input" value="Doe" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Email</label>
+                                <input type="email" class="form-input" value="john.doe@nhealth.com" />
+                            </div>
+                            <div class="form-group">
+                                <label class="form-label">Phone</label>
+                                <input type="tel" class="form-input" value="+66 12 345 6789" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Bio</label>
+                    <textarea class="form-textarea" rows="3"
+                        placeholder="Tell us about yourself...">Cardiologist with 15 years of experience...</textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Department</label>
+                    <select class="form-select">
+                        <option>Cardiology</option>
+                        <option>Neurology</option>
+                        <option>Pediatrics</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Tab -->
+        <div id="security-tab" class="tab-content" style="display: none;">
+            <div class="card mb-6">
+                <h4 class="mb-4">Change Password</h4>
+                <div class="form-group">
+                    <label class="form-label">Current Password</label>
+                    <input type="password" class="form-input" placeholder="Enter current password" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">New Password</label>
+                    <input type="password" class="form-input" placeholder="Enter new password" />
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Confirm New Password</label>
+                    <input type="password" class="form-input" placeholder="Re-enter new password" />
+                </div>
+            </div>
+
+            <div class="card mb-6">
+                <h4 class="mb-4">Two-Factor Authentication</h4>
+                <div class="flex-between"
+                    style="padding: 16px; background: var(--color-bg-secondary); border-radius: var(--radius-lg);">
+                    <div>
+                        <div style="font-weight: 500; margin-bottom: 4px;">Authenticator App</div>
+                        <div class="text-muted" style="font-size: 13px;">Use an authenticator app to generate codes
+                        </div>
+                    </div>
+                    <label class="toggle">
+                        <input type="checkbox" class="toggle-input" />
+                        <span class="toggle-slider"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4 class="mb-4">Login History</h4>
+                <div style="font-size: 13px;">
+                    <div style="padding: 12px 0; border-bottom: 1px solid var(--color-border);">
+                        <div class="flex-between">
+                            <div>
+                                <strong>Chrome on Windows</strong>
+                                <div class="text-muted">Bangkok, Thailand • 192.168.1.1</div>
+                            </div>
+                            <div class="text-muted">2 hours ago</div>
+                        </div>
+                    </div>
+                    <div style="padding: 12px 0; border-bottom: 1px solid var(--color-border);">
+                        <div class="flex-between">
+                            <div>
+                                <strong>Safari on iPhone</strong>
+                                <div class="text-muted">Bangkok, Thailand • 192.168.1.55</div>
+                            </div>
+                            <div class="text-muted">Yesterday</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Notifications Tab -->
+        <div id="notifications-tab" class="tab-content" style="display: none;">
+            <div class="card mb-6">
+                <h4 class="mb-4">Email Notifications</h4>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div class="flex-between" style="padding: 12px 0; border-bottom: 1px solid var(--color-border);">
+                        <div>
+                            <div style="font-weight: 500;">New Lab Results</div>
+                            <div class="text-muted" style="font-size: 13px;">Receive email when new lab results are
+                                available</div>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" class="toggle-input" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="flex-between" style="padding: 12px 0; border-bottom: 1px solid var(--color-border);">
+                        <div>
+                            <div style="font-weight: 500;">System Updates</div>
+                            <div class="text-muted" style="font-size: 13px;">Get notified about system maintenance and
+                                updates</div>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" class="toggle-input" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="flex-between" style="padding: 12px 0; border-bottom: 1px solid var(--color-border);">
+                        <div>
+                            <div style="font-weight: 500;">Weekly Reports</div>
+                            <div class="text-muted" style="font-size: 13px;">Receive weekly summary of your activities
+                            </div>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" class="toggle-input" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4 class="mb-4">SMS Notifications</h4>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div class="flex-between" style="padding: 12px 0; border-bottom: 1px solid var(--color-border);">
+                        <div>
+                            <div style="font-weight: 500;">Urgent Alerts</div>
+                            <div class="text-muted" style="font-size: 13px;">Critical system alerts via SMS</div>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" class="toggle-input" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="flex-between" style="padding: 12px 0;">
+                        <div>
+                            <div style="font-weight: 500;">Patient Updates</div>
+                            <div class="text-muted" style="font-size: 13px;">Important patient status changes</div>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" class="toggle-input" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Preferences Tab -->
+        <div id="preferences-tab" class="tab-content" style="display: none;">
+            <div class="card mb-6">
+                <h4 class="mb-4">Appearance</h4>
+                <div class="form-group">
+                    <label class="form-label">Theme</label>
+                    <select class="form-select">
+                        <option>Light Mode</option>
+                        <option>Dark Mode</option>
+                        <option>Auto (System)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Language</label>
+                    <select class="form-select">
+                        <option>English (US)</option>
+                        <option>ไทย (Thai)</option>
+                        <option>中文 (Chinese)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <h4 class="mb-4">Display Options</h4>
+                <div style="display: flex; flex-direction: column; gap: 16px;">
+                    <div class="flex-between" style="padding: 12px 0; border-bottom: 1px solid var(--color-border);">
+                        <div>
+                            <div style="font-weight: 500;">Compact Mode</div>
+                            <div class="text-muted" style="font-size: 13px;">Reduce spacing for more content density
+                            </div>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" class="toggle-input" />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                    <div class="flex-between" style="padding: 12px 0;">
+                        <div>
+                            <div style="font-weight: 500;">Show Patient Photos</div>
+                            <div class="text-muted" style="font-size: 13px;">Display patient photos in lists and tables
+                            </div>
+                        </div>
+                        <label class="toggle">
+                            <input type="checkbox" class="toggle-input" checked />
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex gap-2 mt-6">
+            <button class="btn btn-primary"><i class="fa-solid fa-floppy-disk"></i> Save Changes</button>
+            <button class="btn btn-secondary">Cancel</button>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+    <script>
+        function switchTab(tabName) {
+            // Hide all tabs
+            document.querySelectorAll('.tab-content').forEach(tab => tab.style.display = 'none');
+            document.querySelectorAll('.tab-item').forEach(item => item.classList.remove('active'));
+
+            // Show selected tab
+            document.getElementById(tabName + '-tab').style.display = 'block';
+
+            // Find the clicked tab item and add active class 
+            const items = document.querySelectorAll('.tab-item');
+            items.forEach(item => {
+                if (item.textContent.trim().toLowerCase().includes(tabName.toLowerCase())) {
+                    item.classList.add('active');
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>
