@@ -14,6 +14,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 4. Initialize Mobile Menu
     initMobileMenu();
+
+    // 5. Initialize Syntax Highlighting
+    initSyntaxHighlighting();
 });
 
 /* --- 1. Theme Handling --- */
@@ -181,9 +184,9 @@ function initMobileMenu() {
                 const subLinks = dropdownContent.querySelectorAll('a');
                 subLinks.forEach(sub => {
                     const clonedSub = sub.cloneNode(true);
-                    clonedSub.style.paddingLeft = '32px'; // Indent
-                    clonedSub.style.fontSize = '16px';
-                    clonedSub.style.background = 'transparent'; // Reset default bg if any
+                    clonedSub.classList.add('nav-sub-link');
+                    // Remove any inline styles copied from the source if necessary, 
+                    // though usually source has none.
                     overlay.appendChild(clonedSub);
                 });
             } else {
@@ -234,4 +237,38 @@ function initMobileMenu() {
             toggleBtn.innerHTML = '<i class="fa-solid fa-xmark"></i>';
         }
     });
+}
+
+/* --- 5. Syntax Highlighting (Prism.js Support) --- */
+function initSyntaxHighlighting() {
+    // Automatically wrap pre.code-preview content in code tags if missing
+    document.querySelectorAll('pre.code-preview').forEach(block => {
+        // If it already has a code tag, skip
+        if (block.querySelector('code')) return;
+
+        // Get inferred language from header if available
+        let langClass = 'language-html'; // Default
+        const container = block.closest('.code-box-container');
+        if (container) {
+            const langTag = container.querySelector('.code-lang-tag');
+            if (langTag) {
+                const langText = langTag.textContent.toLowerCase().trim();
+                if (langText === 'javascript' || langText === 'js') langClass = 'language-javascript';
+                if (langText === 'typescript' || langText === 'ts') langClass = 'language-typescript';
+                if (langText === 'css') langClass = 'language-css';
+            }
+        }
+
+        // Wrap content
+        const code = document.createElement('code');
+        code.className = langClass;
+        code.innerHTML = block.innerHTML;
+        block.innerHTML = '';
+        block.appendChild(code);
+    });
+
+    // If Prism is loaded, trigger highlight
+    if (window.Prism) {
+        Prism.highlightAll();
+    }
 }

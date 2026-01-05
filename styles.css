@@ -810,14 +810,20 @@ p {
     font-family: var(--font-body);
 }
 
+/* Code Highlight (Prism.js overrides) */
 .code-preview {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.6;
+    border-radius: 0 0 var(--radius-md) var(--radius-md);
+}
+
+/* Ensure raw text looks okay before Prism loads */
+pre.code-preview {
     padding: 20px;
     overflow-x: auto;
     color: #d4d4d4;
     font-family: var(--font-mono);
-    font-size: 14px;
-    line-height: 1.6;
-    margin: 0;
 }
 
 .code-lang-tag {
@@ -1047,6 +1053,15 @@ p {
     font-size: 18px;
     margin-bottom: 8px;
     font-weight: 600;
+}
+
+.mobile-menu-overlay .nav-sub-link {
+    padding-left: 48px !important;
+    /* Visual indentation */
+    font-size: 16px !important;
+    gap: 12px;
+    color: var(--color-text-secondary);
+    background: transparent;
 }
 
 .mobile-menu-overlay .nav-actions-mobile {

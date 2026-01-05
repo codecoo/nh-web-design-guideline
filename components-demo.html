@@ -7,6 +7,8 @@
     <title>Components - N Health Web Design Guideline</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
+    <!-- Prism.js Tomorrow Night Theme -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
 </head>
 
 <body>
@@ -428,12 +430,62 @@
 
     </div>
 
+    <!-- Script / Code Highlight Example -->
+    <section class="card mb-6">
+        <div class="card-header">
+            <h4 class="card-title">Code Syntax Highlighting</h4>
+        </div>
+        <div class="mb-4">
+            <p>Use the <code>code-lang-tag</code> to automatically highlight syntax for HTML, JavaScript, or TypeScript.
+            </p>
+        </div>
+
+        <h5 class="mb-2">JavaScript Example</h5>
+        <div class="code-box-container">
+            <div class="code-box-header">
+                <span class="code-lang-tag">JavaScript</span>
+                <button class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button>
+            </div>
+            <pre class="code-preview">
+function greeting(name) {
+  const message = `Hello, ${name}!`;
+  console.log(message);
+  return message;
+}</pre>
+        </div>
+
+        <h5 class="mb-2 mt-4">TypeScript Example</h5>
+        <div class="code-box-container">
+            <div class="code-box-header">
+                <span class="code-lang-tag">TypeScript</span>
+                <button class="copy-btn"><i class="fa-regular fa-copy"></i> Copy</button>
+            </div>
+            <pre class="code-preview">
+interface User {
+  id: number;
+  name: string;
+  role: 'admin' | 'user';
+}
+
+const currentUser: User = {
+  id: 1,
+  name: "Doctor Strange",
+  role: "admin"
+};</pre>
+        </div>
+    </section>
+
+    </div>
+
     <footer style="background: var(--color-bg-secondary); padding: 40px 0; border-top: 1px solid var(--color-border);">
         <div class="container text-center text-muted">
             <p>&copy; 2026 N Health Web Design Guideline</p>
         </div>
     </footer>
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-typescript.min.js"></script>
     <script src="main.js"></script>
 </body>
 
