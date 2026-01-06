@@ -458,7 +458,7 @@ p {
 .form-label {
     display: block;
     margin-bottom: var(--space-2);
-    font-size: var(--text-sm);
+    font-size: var(--text-base);
     font-weight: 600;
     color: var(--color-text-primary);
 }
@@ -502,11 +502,33 @@ p {
     top: 50%;
     transform: translateY(-50%);
     color: var(--color-text-muted);
-    font-size: 16px;
+    font-size: 20px;
 }
 
 .search-input {
-    padding-left: 44px;
+    padding-left: 48px;
+}
+
+/* Microsoft / Azure Button */
+.btn-azure {
+    background-color: #f3f4f6;
+    color: #4b5563;
+    border: 1px solid #e5e7eb;
+    width: 100%;
+    justify-content: center;
+    font-weight: 600;
+}
+
+.btn-azure:hover {
+    background-color: #e5e7eb;
+    color: #1f2937;
+}
+
+.microsoft-icon {
+    width: 21px;
+    height: 21px;
+    min-width: 21px;
+    /* Prevent shrinking */
 }
 
 /* --- Cards --- */
@@ -627,7 +649,7 @@ p {
 /* Language Switcher */
 .lang-switch {
     font-weight: 600;
-    font-size: 14px;
+    font-size: 16px;
     cursor: pointer;
     padding: 6px 12px;
     border-radius: var(--radius-md);
@@ -698,7 +720,8 @@ p {
     justify-content: center;
     padding: 4px 12px;
     border-radius: var(--radius-full);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
+    font-weight: 700;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.05em;
@@ -771,8 +794,8 @@ p {
     background-color: var(--color-bg-secondary);
     font-weight: 600;
     text-transform: uppercase;
-    font-size: var(--text-xs);
-    letter-spacing: 0.05em;
+    font-size: var(--text-sm);
+    letter-spacing: 0.03em;
     color: var(--color-text-secondary);
 }
 
