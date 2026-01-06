@@ -74,14 +74,14 @@
     --font-body: 'DB Helvethaica X', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
     --font-mono: 'Consolas', 'Monaco', 'Courier New', monospace;
 
-    --text-xs: 12px;
-    --text-sm: 14px;
-    --text-base: 16px;
-    --text-lg: 18px;
-    --text-xl: 22px;
-    --text-2xl: 30px;
-    --text-3xl: 38px;
-    --text-4xl: 48px;
+    --text-xs: 14px;
+    --text-sm: 16px;
+    --text-base: 18px;
+    --text-lg: 20px;
+    --text-xl: 24px;
+    --text-2xl: 32px;
+    --text-3xl: 42px;
+    --text-4xl: 56px;
 
     /* Shadows - Subtle and professional */
     --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
