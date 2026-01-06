@@ -2,7 +2,8 @@
 
 **Version**: 3.0.0  
 **Updated**: January 2026  
-**Status**: Production Ready
+**Status**: Production Ready  
+**Live Demo**: [View Live Demo](https://codecoo.github.io/nh-web-design-guideline/index.html)
 
 ## 🚀 Overview
 
@@ -65,16 +66,16 @@ The system uses a sophisticated scale of blues and neutrals.
 
 ### Typography
 
-**Font Family**: `DB Helvethaica X`, `-apple-system`, `Roboto`, `sans-serif`
+**Font Family**: `DB Helvethaica X`, `-apple-system`, `Roboto`, `sans-serif` (Served via WOFF for performance)
 
 - **Headings**: Bold weights (700), optimized for hierarchy.
-  - H1: 48px
-  - H2: 38px
-  - H3: 30px
-  - H4: 22px
+  - H1: 56px
+  - H2: 42px
+  - H3: 32px
+  - H4: 24px
 - **Body**: Regular weights (400/500), high readability.
-  - Base: 16px
-  - Small: 14px
+  - Base: 18px
+  - Small: 16px
 
 ## 💻 Usage & Development
 
